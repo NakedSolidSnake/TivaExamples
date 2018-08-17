@@ -1,0 +1,922 @@
+******************************************************************************
+                  TI ARM Linker Unix v16.9.3                   
+******************************************************************************
+>> Linked Thu Aug 16 22:12:32 2018
+
+OUTPUT FILE NAME:   <abstraction_freertos.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000036c9
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00004c30  0003b3d0  R  X
+  SRAM                  20000000   00008000  00007cb0  00000350  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00004c30   00004c30    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    000043b8   000043b8    r-x .text
+  00004624    00004624    0000052c   0000052c    r-- .const
+  00004b50    00004b50    000000e0   000000e0    r-- .cinit
+20000000    20000000    00007cb0   00000000    rw-
+  20000000    20000000    0000026c   00000000    rw- .vtable
+  2000026c    2000026c    00007700   00000000    rw- .bss
+  2000796c    2000796c    00000200   00000000    rw- .stack
+  20007b6c    20007b6c    00000144   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    000043b8     
+                  0000026c    0000113e     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.obj (.text)
+                  000013aa    000001f4                                   : ull_div_t2.obj (.text)
+                  0000159e    00000002     startup_ccs.obj (.text:FaultISR)
+                  000015a0    000001ea     uartstdio.obj (.text:UARTvprintf)
+                  0000178a    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.obj (.text)
+                  00001940    00000136                                   : fd_div_t2.obj (.text)
+                  00001a76    00000132     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  00001ba8    00000118     Nokia5110.obj (.text:Nokia5110_Init)
+                  00001cc0    00000118     queue.obj (.text:xQueueGenericReceive)
+                  00001dd8    00000110     driverlib.lib : sysctl.obj (.text:SysCtlClockGet)
+                  00001ee8    00000104     tasks.obj (.text:xTaskGenericCreate)
+                  00001fec    00000104     tasks.obj (.text:xTaskIncrementTick)
+                  000020f0    000000fc     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_mul_t2.obj (.text)
+                  000021ec    000000fc                                   : s_scalbn.obj (.text)
+                  000022e8    000000e8     queue.obj (.text:xQueueGenericSend)
+                  000023d0    000000e4     tasks.obj (.text:xTaskResumeAll)
+                  000024b4    000000d2     portasm.obj (.text)
+                  00002586    00000002     startup_ccs.obj (.text:IntDefaultHandler)
+                  00002588    000000cc     frtos_tasks.obj (.text:CreateTasks)
+                  00002654    000000ac     heap_2.obj (.text:pvPortMalloc)
+                  00002700    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  0000279c    0000009c     frtos_tasks.obj (.text:vTaskTimerInterrupt)
+                  00002838    00000094     tasks.obj (.text:vTaskPriorityInherit)
+                  000028cc    0000008c     tasks.obj (.text:vTaskSwitchContext)
+                  00002958    00000088     frtos_tasks.obj (.text:vTaskTX)
+                  000029e0    00000086     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_cmp_t2.obj (.text:__aeabi_cdcmple)
+                  00002a66    00000086                                   : fd_cmp_t2.obj (.text:__aeabi_cdrcmple)
+                  00002aec    00000084     queue.obj (.text:xQueueGenericReset)
+                  00002b70    00000080     main.obj (.text:main)
+                  00002bf0    0000007c     tasks.obj (.text:xTaskPriorityDisinherit)
+                  00002c6c    0000007a     driverlib.lib : adc.obj (.text:ADCSequenceStepConfigure)
+                  00002ce6    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.obj (.text)
+                  00002d60    00000078     uarts.obj (.text:UART2_init_low_level)
+                  00002dd8    00000074     tasks.obj (.text:xTaskRemoveFromEventList)
+                  00002e4c    00000072     queue.obj (.text:prvCopyDataToQueue)
+                  00002ebe    00000002     startup_ccs.obj (.text:NmiSR)
+                  00002ec0    00000070     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.obj (.text)
+                  00002f30    00000070     frtos_tasks.obj (.text:vTaskLCDNokia5110)
+                  00002fa0    00000068     driverlib.lib : interrupt.obj (.text:IntEnable)
+                  00003008    00000068     filter.obj (.text:PID_filter)
+                  00003070    00000068     PLL.obj (.text:PLL_Init)
+                  000030d8    00000068     uarts.obj (.text:UART0_init_low_level)
+                  00003140    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.obj (.text:decompress:lzss)
+                  000031a8    00000064                                   : s_frexp.obj (.text)
+                  0000320c    00000064     tasks.obj (.text:vTaskPlaceOnEventList)
+                  00003270    00000062     queue.obj (.text:prvUnlockQueue)
+                  000032d2    00000002     lcd_nokia5110_driver.obj (.text:nokia5110_close)
+                  000032d4    00000060     driverlib.lib : timer.obj (.text:TimerConfigure)
+                  00003334    00000060     uartstdio.obj (.text:UARTStdioConfig)
+                  00003394    00000060     OSOperation.obj (.text:dev_open)
+                  000033f4    00000060     tasks.obj (.text:prvInitialiseTaskLists)
+                  00003454    00000060     rtsv7M4_T_le_v4SPD16_eabi.lib : sprintf.obj (.text)
+                  000034b4    00000060     tasks.obj (.text:vTaskStartScheduler)
+                  00003514    00000058     driverlib.lib : adc.obj (.text:ADCSequenceConfigure)
+                  0000356c    00000058     tasks.obj (.text:prvCheckTasksWaitingTermination)
+                  000035c4    00000058     frtos_tasks.obj (.text:timerA_interrupt_handler)
+                  0000361c    00000056     queue.obj (.text:xQueueGiveFromISR)
+                  00003672    00000054     tasks.obj (.text:prvInitialiseTCBVariables)
+                  000036c6    00000002     lcd_nokia5110_driver.obj (.text:nokia5110_open)
+                  000036c8    00000054     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  0000371c    00000054                                   : exit.obj (.text)
+                  00003770    00000054                                   : ltoa.obj (.text)
+                  000037c4    00000054     tasks.obj (.text:xTaskCheckForTimeOut)
+                  00003818    00000050     adcs.obj (.text:ADC_init_low_level)
+                  00003868    00000050     frtos_tasks.obj (.text:vTaskAD)
+                  000038b8    0000004c     filter.obj (.text:TempCelsiusGrad)
+                  00003904    0000004c     timers.obj (.text:Timer0_init_low_level)
+                  00003950    0000004c     driverlib.lib : timer.obj (.text:_TimerIntNumberGet)
+                  0000399c    0000004c     tasks.obj (.text:prvAddCurrentTaskToDelayedList)
+                  000039e8    0000004c     rtsv7M4_T_le_v4SPD16_eabi.lib : atoi.obj (.text)
+                  00003a34    0000004c                                   : cpy_tbl.obj (.text)
+                  00003a80    0000004c     queue.obj (.text:xQueueCreateMutex)
+                  00003acc    00000048     driverlib.lib : gpio.obj (.text:GPIOPinConfigure)
+                  00003b14    00000048     uartstdio.obj (.text:UARTwrite)
+                  00003b5c    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_toi_t2.obj (.text)
+                  00003ba4    00000048     frtos_tasks.obj (.text:vTaskSerial2)
+                  00003bec    00000046     driverlib.lib : uart.obj (.text:UARTConfigSetExpClk)
+                  00003c32    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_tou_t2.obj (.text)
+                  00003c76    00000002     lcd_nokia5110_driver.obj (.text:nokia5110_read)
+                  00003c78    00000044     heap_2.obj (.text:vPortFree)
+                  00003cbc    00000040     rtsv7M4_T_le_v4SPD16_eabi.lib : u_divt2.obj (.text)
+                  00003cfc    00000040     port.obj (.text:xPortStartScheduler)
+                  00003d3c    0000003c     queue.obj (.text:xQueueGenericCreate)
+                  00003d78    0000003a     tasks.obj (.text:prvAllocateTCBAndStack)
+                  00003db2    00000002     lcd_nokia5110_driver.obj (.text:nokia5110_write)
+                  00003db4    00000038     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralReady)
+                  00003dec    00000038     Nokia5110.obj (.text:lcdwrite)
+                  00003e24    00000038     rtsv7M4_T_le_v4SPD16_eabi.lib : fs_tod_t2.obj (.text)
+                  00003e5c    00000038     list.obj (.text:vListInsert)
+                  00003e94    00000034     driverlib.lib : interrupt.obj (.text:IntRegister)
+                  00003ec8    00000034                   : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  00003efc    00000034     adcs.obj (.text:adc_read_value)
+                  00003f30    00000034     OSOperation.obj (.text:dev_ioctl)
+                  00003f64    00000034     OSOperation.obj (.text:dev_write)
+                  00003f98    00000030     heap_2.obj (.text:prvHeapInit)
+                  00003fc8    0000002e     driverlib.lib : adc.obj (.text:ADCIntStatus)
+                  00003ff6    0000002e     rtsv7M4_T_le_v4SPD16_eabi.lib : i_tofd_t2.obj (.text)
+                  00004024    0000002c     Nokia5110.obj (.text:Nokia5110_OutChar)
+                  00004050    0000002c     OSSystem.obj (.text:SystemInit)
+                  0000407c    0000002c     port.obj (.text:xPortSysTickHandler)
+                  000040a8    0000002a     driverlib.lib : gpio.obj (.text:GPIODirModeSet)
+                  000040d2    0000002a     Nokia5110.obj (.text:Nokia5110_SetCursor)
+                  000040fc    00000028     adc_driver.obj (.text:adc_ioctl)
+                  00004124    00000028     tasks.obj (.text:prvResetNextTaskUnblockTime)
+                  0000414c    00000028     port.obj (.text:pxPortInitialiseStack)
+                  00004174    00000026     queue.obj (.text:prvCopyDataFromQueue)
+                  0000419a    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : i_div0.obj (.text)
+                  0000419c    00000020     driverlib.lib : uart.obj (.text:UARTDisable)
+                  000041bc    00000020     lcd_nokia5110_driver.obj (.text:nokia5110_ioctl)
+                  000041dc    00000020     timer0_driver.obj (.text:timer0_ioctl)
+                  000041fc    00000020     list.obj (.text:uxListRemove)
+                  0000421c    0000001e     driverlib.lib : adc.obj (.text:ADCSequenceDataGet)
+                  0000423a    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : mpu_init.obj (.text)
+                  0000423c    0000001c     uarts.obj (.text:UART2_print)
+                  00004258    0000001c     adc_driver.obj (.text:adc_close)
+                  00004274    0000001c     Nokia5110.obj (.text:lcddatawrite)
+                  00004290    0000001c     hal_uart.obj (.text:print)
+                  000042ac    0000001c     queue.obj (.text:prvIsQueueFull)
+                  000042c8    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : memccpy.obj (.text)
+                  000042e4    0000001c     port.obj (.text:vPortEnterCritical)
+                  00004300    0000001a     uartstdio.obj (.text:UARTprintf)
+                  0000431a    0000001a     queue.obj (.text:prvIsQueueEmpty)
+                  00004334    00000018     driverlib.lib : adc.obj (.text:ADCProcessorTrigger)
+                  0000434c    00000018     Nokia5110.obj (.text:Nokia5110_Clear)
+                  00004364    00000018     driverlib.lib : timer.obj (.text:TimerIntRegister)
+                  0000437c    00000018     adc_driver.obj (.text:adc_open)
+                  00004394    00000018     tasks.obj (.text:pvTaskIncrementMutexHeldCount)
+                  000043ac    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  000043c4    00000018                                   : strcmp.obj (.text)
+                  000043dc    00000018     list.obj (.text:vListInsertEnd)
+                  000043f4    00000018     port.obj (.text:vPortExitCritical)
+                  0000440c    00000018     tasks.obj (.text:vTaskSetTimeOutState)
+                  00004424    00000016     rtsv7M4_T_le_v4SPD16_eabi.lib : strchr.obj (.text)
+                  0000443a    00000016     list.obj (.text:vListInitialise)
+                  00004450    00000014     Nokia5110.obj (.text:Nokia5110_OutString)
+                  00004464    00000014     driverlib.lib : uart.obj (.text:UARTEnable)
+                  00004478    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.text)
+                  0000448c    00000014                                   : s_copysign.obj (.text)
+                  000044a0    00000014                                   : strlen.obj (.text)
+                  000044b4    00000014     port.obj (.text:vPortSetupTimerInterrupt)
+                  000044c8    00000012     driverlib.lib : gpio.obj (.text:GPIOPinTypeUART)
+                  000044da    00000012                   : timer.obj (.text:TimerLoadSet)
+                  000044ec    00000012     tasks.obj (.text:prvDeleteTCB)
+                  000044fe    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : startup.obj (.text)
+                  00004500    00000010     timers.obj (.text:Timer0_set_value)
+                  00004510    00000010     port.obj (.text:prvTaskExitError)
+                  00004520    00000010     tasks.obj (.text:vTaskSuspendAll)
+                  00004530    0000000e     driverlib.lib : adc.obj (.text:ADCSequenceEnable)
+                  0000453e    0000000e                   : timer.obj (.text:TimerEnable)
+                  0000454c    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
+                  0000455a    0000000c     OSDisplay.obj (.text:LCD_init)
+                  00004566    00000002     main.obj (.text:vApplicationStackOverflowHook)
+                  00004568    0000000c     timers.obj (.text:Timer0_ClearInterrupt)
+                  00004574    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
+                  00004580    0000000c     tasks.obj (.text:vTaskMissedYield)
+                  0000458c    0000000a     driverlib.lib : adc.obj (.text:ADCIntClear)
+                  00004596    0000000a                   : uart.obj (.text:UARTCharPut)
+                  000045a0    0000000a     uart0_driver.obj (.text:uart0_write)
+                  000045aa    0000000a     uart2_driver.obj (.text:uart2_write)
+                  000045b4    00000008     tasks.obj (.text:prvIdleTask)
+                  000045bc    00000006     startup_ccs.obj (.text:ResetISR)
+                  000045c2    00000006     driverlib.lib : sysctl.obj (.text:SysCtlDelay)
+                  000045c8    00000006                   : uart.obj (.text:UARTClockSourceSet)
+                  000045ce    00000006     list.obj (.text:vListInitialiseItem)
+                  000045d4    00000004     driverlib.lib : timer.obj (.text:TimerIntClear)
+                  000045d8    00000004     uarts.obj (.text:UART0_print)
+                  000045dc    00000004     adc_driver.obj (.text:adc_get_value)
+                  000045e0    00000004     adc_driver.obj (.text:adc_read)
+                  000045e4    00000004     adc_driver.obj (.text:adc_write)
+                  000045e8    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.obj (.text)
+                  000045ec    00000004     timer0_driver.obj (.text:timer0_close)
+                  000045f0    00000004     timer0_driver.obj (.text:timer0_open)
+                  000045f4    00000004     timer0_driver.obj (.text:timer0_read)
+                  000045f8    00000004     timer0_driver.obj (.text:timer0_write)
+                  000045fc    00000004     timer0_driver.obj (.text:timer_clear_interrupt)
+                  00004600    00000004     timer0_driver.obj (.text:timer_load_period)
+                  00004604    00000004     uart0_driver.obj (.text:uart0_close)
+                  00004608    00000004     uart0_driver.obj (.text:uart0_ioctl)
+                  0000460c    00000004     uart0_driver.obj (.text:uart0_open)
+                  00004610    00000004     uart0_driver.obj (.text:uart0_read)
+                  00004614    00000004     uart2_driver.obj (.text:uart2_close)
+                  00004618    00000004     uart2_driver.obj (.text:uart2_ioctl)
+                  0000461c    00000004     uart2_driver.obj (.text:uart2_open)
+                  00004620    00000004     uart2_driver.obj (.text:uart2_read)
+
+.const     0    00004624    0000052c     
+                  00004624    000001e0     Nokia5110.obj (.const:ASCII)
+                  00004804    00000101     rtsv7M4_T_le_v4SPD16_eabi.lib : ctype.obj (.const:.string:_ctypes_)
+                  00004905    00000003     --HOLE-- [fill = 0]
+                  00004908    00000090     driverlib.lib : gpio.obj (.const:g_pui32GPIOBaseAddrs)
+                  00004998    00000070                   : interrupt.obj (.const)
+                  00004a08    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  00004a74    00000060                   : timer.obj (.const:g_ppui32TimerIntMap)
+                  00004ad4    00000040                   : timer.obj (.const:g_ppui32TimerIntMapSnowflake)
+                  00004b14    0000001f     bsp.obj (.const:.string)
+                  00004b33    00000001     --HOLE-- [fill = 0]
+                  00004b34    0000000c     uartstdio.obj (.const:g_ui32UARTBase)
+                  00004b40    0000000c     uartstdio.obj (.const:g_ui32UARTPeriph)
+                  00004b4c    00000004     port.obj (.const)
+
+.cinit     0    00004b50    000000e0     
+                  00004b50    000000a7     (.cinit..data.load) [load image, compression = lzss]
+                  00004bf7    00000001     --HOLE-- [fill = 0]
+                  00004bf8    0000000c     (__TI_handler_table)
+                  00004c04    00000004     --HOLE-- [fill = 0]
+                  00004c08    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00004c10    00000008     (.cinit..vtable.load) [load image, compression = zero_init]
+                  00004c18    00000018     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.vtable    0    20000000    0000026c     UNINITIALIZED
+                  20000000    0000026c     driverlib.lib : interrupt.obj (.vtable)
+
+.bss       0    2000026c    00007700     UNINITIALIZED
+                  2000026c    00007530     heap_2.obj (.bss:ucHeap)
+                  2000779c    00000140     tasks.obj (.bss:pxReadyTasksLists)
+                  200078dc    00000014     tasks.obj (.bss:xDelayedTaskList1)
+                  200078f0    00000014     tasks.obj (.bss:xDelayedTaskList2)
+                  20007904    00000014     tasks.obj (.bss:xPendingReadyList)
+                  20007918    00000014     tasks.obj (.bss:xSuspendedTaskList)
+                  2000792c    00000014     tasks.obj (.bss:xTasksWaitingTermination)
+                  20007940    00000008     tasks.obj (.bss)
+                  20007948    00000008     heap_2.obj (.bss:xEnd)
+                  20007950    00000008     heap_2.obj (.bss:xStart)
+                  20007958    00000004     (.common:binary_sem_lcd)
+                  2000795c    00000004     (.common:binary_semafore)
+                  20007960    00000004     (.common:g_pQueue)
+                  20007964    00000004     (.common:g_pQueueDisplay)
+                  20007968    00000004     (.common:g_pUARTSemaphore)
+
+.data      0    20007b6c    00000144     UNINITIALIZED
+                  20007b6c    0000008c     bsp.obj (.data:mydev)
+                  20007bf8    00000030     tasks.obj (.data)
+                  20007c28    00000024     filter.obj (.data:filter)
+                  20007c4c    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : exit.obj (.data:$O1$$)
+                  20007c58    0000000c     frtos_tasks.obj (.data)
+                  20007c64    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data:$O1$$)
+                  20007c6c    00000008     timer0_driver.obj (.data:_timer_ioctl)
+                  20007c74    00000008     bsp.obj (.data)
+                  20007c7c    00000008     heap_2.obj (.data)
+                  20007c84    00000006     adc_driver.obj (.data)
+                  20007c8a    00000002     --HOLE--
+                  20007c8c    00000005     uartstdio.obj (.data)
+                  20007c91    00000003     --HOLE--
+                  20007c94    00000004     adc_driver.obj (.data:_adc_ioctl)
+                  20007c98    00000004     filter.obj (.data)
+                  20007c9c    00000004     lcd_nokia5110_driver.obj (.data)
+                  20007ca0    00000004     port.obj (.data)
+                  20007ca4    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : errno.obj (.data)
+                  20007ca8    00000004                                   : stkdepth_vars.obj (.data)
+                  20007cac    00000004     timer0_driver.obj (.data)
+
+.stack     0    2000796c    00000200     UNINITIALIZED
+                  2000796c    00000200     --HOLE--
+
+MODULE SUMMARY
+
+       Module                     code    ro data   rw data
+       ------                     ----    -------   -------
+    ./
+       startup_ccs.obj            12      620       0      
+       main.obj                   130     0         20     
+    +--+--------------------------+-------+---------+---------+
+       Total:                     142     620       20     
+                                                           
+    ./BSP/
+       bsp.obj                    0       31        148    
+    +--+--------------------------+-------+---------+---------+
+       Total:                     0       31        148    
+                                                           
+    ./OSOperation/
+       OSOperation.obj            200     0         0      
+       OSSystem.obj               44      0         0      
+       OSDisplay.obj              12      0         0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     256     0         0      
+                                                           
+    ./device_drivers/
+       adc_driver.obj             104     0         10     
+       timer0_driver.obj          56      0         12     
+       lcd_nokia5110_driver.obj   40      0         4      
+       uart0_driver.obj           26      0         0      
+       uart2_driver.obj           26      0         0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     252     0         26     
+                                                           
+    ./device_drivers/drivers/
+       uarts.obj                  256     0         0      
+       adcs.obj                   132     0         0      
+       timers.obj                 104     0         0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     492     0         0      
+                                                           
+    ./device_drivers/drivers/Nokia5110/
+       Nokia5110.obj              494     480       0      
+       PLL.obj                    104     0         0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     598     480       0      
+                                                           
+    ./filter/
+       filter.obj                 180     0         40     
+    +--+--------------------------+-------+---------+---------+
+       Total:                     180     0         40     
+                                                           
+    ./modules/
+       hal_uart.obj               28      0         0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     28      0         0      
+                                                           
+    ./tasks/
+       frtos_tasks.obj            848     0         12     
+    +--+--------------------------+-------+---------+---------+
+       Total:                     848     0         12     
+                                                           
+    ./third_party/FreeRTOS/Source/
+       tasks.obj                  2100    0         476    
+       queue.obj                  1170    0         0      
+       list.obj                   140     0         0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     3410    0         476    
+                                                           
+    ./third_party/FreeRTOS/Source/portable/CCS/ARM_CM4F/
+       port.obj                   236     4         4      
+       portasm.obj                210     0         0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     446     4         4      
+                                                           
+    ./third_party/FreeRTOS/Source/portable/MemMang/
+       heap_2.obj                 288     0         30024  
+    +--+--------------------------+-------+---------+---------+
+       Total:                     288     0         30024  
+                                                           
+    ./utils/
+       uartstdio.obj              684     24        5      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     684     24        5      
+                                                           
+    /home/solid/TivaWare_C_Series-2.1.3.156/driverlib/ccs/Debug/driverlib.lib
+       interrupt.obj              156     112       620    
+       gpio.obj                   438     144       0      
+       sysctl.obj                 386     108       0      
+       timer.obj                  232     160       0      
+       adc.obj                    334     0         0      
+       uart.obj                   138     0         0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     1684    524       620    
+                                                           
+    /home/solid/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/lib/rtsv7M4_T_le_v4SPD16_eabi.lib
+       _printfi.obj               4414    0         0      
+       ull_div_t2.obj             500     0         0      
+       fd_add_t2.obj              438     0         0      
+       fd_div_t2.obj              310     0         0      
+       fd_cmp_t2.obj              268     0         0      
+       ctype.obj                  0       257       0      
+       fd_mul_t2.obj              252     0         0      
+       s_scalbn.obj               252     0         0      
+       memcpy_t2.obj              156     0         0      
+       memset_t2.obj              122     0         0      
+       autoinit.obj               112     0         0      
+       copy_decompress_lzss.obj   104     0         0      
+       s_frexp.obj                100     0         0      
+       exit.obj                   84      0         12     
+       sprintf.obj                96      0         0      
+       boot.obj                   84      0         0      
+       ltoa.obj                   84      0         0      
+       atoi.obj                   76      0         0      
+       cpy_tbl.obj                76      0         0      
+       fd_toi_t2.obj              72      0         0      
+       fd_tou_t2.obj              68      0         0      
+       u_divt2.obj                64      0         0      
+       fs_tod_t2.obj              56      0         0      
+       i_tofd_t2.obj              46      0         0      
+       _lock.obj                  20      0         8      
+       memccpy.obj                28      0         0      
+       args_main.obj              24      0         0      
+       strcmp.obj                 24      0         0      
+       strchr.obj                 22      0         0      
+       s_copysign.obj             20      0         0      
+       strlen.obj                 20      0         0      
+       copy_decompress_none.obj   14      0         0      
+       copy_zero_init.obj         12      0         0      
+       errno.obj                  0       0         4      
+       pre_init.obj               4       0         0      
+       stkdepth_vars.obj          0       0         4      
+       i_div0.obj                 2       0         0      
+       mpu_init.obj               2       0         0      
+       startup.obj                2       0         0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     8028    257       28     
+                                                           
+       Stack:                     0       0         512    
+       Linker Generated:          0       219       0      
+    +--+--------------------------+-------+---------+---------+
+       Grand Total:               17336   2159      31915  
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00004c18 records: 3, size/record: 8, table size: 24
+	.data: load addr=00004b50, load size=000000a7 bytes, run addr=20007b6c, run size=00000144 bytes, compression=lzss
+	.bss: load addr=00004c08, load size=00000008 bytes, run addr=2000026c, run size=00007700 bytes, compression=zero_init
+	.vtable: load addr=00004c10, load size=00000008 bytes, run addr=20000000, run size=0000026c bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00004bf8 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_zero_init
+	index: 1, handler: __TI_decompress_lzss
+	index: 2, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                           
+-------   ----                           
+0000458d  ADCIntClear                    
+00003fc9  ADCIntStatus                   
+00004335  ADCProcessorTrigger            
+00003515  ADCSequenceConfigure           
+0000421d  ADCSequenceDataGet             
+00004531  ADCSequenceEnable              
+00002c6d  ADCSequenceStepConfigure       
+00003819  ADC_init                       
+00003819  ADC_init_low_level             
+0000371d  C$$EXIT                        
+00002589  CreateTasks                    
+000040a9  GPIODirModeSet                 
+00001a77  GPIOPadConfigSet               
+00003acd  GPIOPinConfigure               
+000044c9  GPIOPinTypeUART                
+00002fa1  IntEnable                      
+00003e95  IntRegister                    
+0000455b  LCD_init                       
+0000434d  Nokia5110_Clear                
+00001ba9  Nokia5110_Init                 
+00004025  Nokia5110_OutChar              
+00004451  Nokia5110_OutString            
+000040d3  Nokia5110_SetCursor            
+20007c74  OS_lenght                      
+00003009  PID_filter                     
+00003071  PLL_Init                       
+000045bd  ResetISR                       
+UNDEFED   SHT$$INIT_ARRAY$$Base          
+UNDEFED   SHT$$INIT_ARRAY$$Limit         
+00001dd9  SysCtlClockGet                 
+000045c3  SysCtlDelay                    
+00003ec9  SysCtlPeripheralEnable         
+00003db5  SysCtlPeripheralReady          
+00004051  SystemInit                     
+00003905  TIMER0_init                    
+000038b9  TempCelsiusGrad                
+00004569  Timer0_ClearInterrupt          
+00003905  Timer0_init_low_level          
+00004501  Timer0_set_value               
+000032d5  TimerConfigure                 
+0000453f  TimerEnable                    
+000045d5  TimerIntClear                  
+00004365  TimerIntRegister               
+000044db  TimerLoadSet                   
+000030d9  UART0_init                     
+000030d9  UART0_init_low_level           
+000045d9  UART0_print                    
+00002d61  UART2_init                     
+00002d61  UART2_init_low_level           
+0000423d  UART2_print                    
+00004597  UARTCharPut                    
+000045c9  UARTClockSourceSet             
+00003bed  UARTConfigSetExpClk            
+0000419d  UARTDisable                    
+00004465  UARTEnable                     
+00003335  UARTStdioConfig                
+00004301  UARTprintf                     
+000015a1  UARTvprintf                    
+00003b15  UARTwrite                      
+20007c78  __OSOperation                  
+20007b6c  __STACK_END                    
+00000200  __STACK_SIZE                   
+20007b6c  __STACK_TOP                    
+00004c18  __TI_CINIT_Base                
+00004c30  __TI_CINIT_Limit               
+00004bf8  __TI_Handler_Table_Base        
+00004c04  __TI_Handler_Table_Limit       
+00002ec1  __TI_auto_init                 
+20007c4c  __TI_cleanup_ptr               
+00003141  __TI_decompress_lzss           
+0000454d  __TI_decompress_none           
+20007c50  __TI_dtors_ptr                 
+20007c54  __TI_enable_exit_profile_output
+ffffffff  __TI_pprof_out_hndl            
+00000ab1  __TI_printfi                   
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+00000000  __TI_static_base__             
+00004575  __TI_zero_init                 
+000029e1  __aeabi_cdcmpeq                
+000029e1  __aeabi_cdcmple                
+00002a67  __aeabi_cdrcmple               
+00003b5d  __aeabi_d2iz                   
+00003c33  __aeabi_d2uiz                  
+00001795  __aeabi_dadd                   
+00001941  __aeabi_ddiv                   
+000020f1  __aeabi_dmul                   
+0000178b  __aeabi_dsub                   
+00003e25  __aeabi_f2d                    
+00003ff7  __aeabi_i2d                    
+0000419b  __aeabi_idiv0                  
+00002ce7  __aeabi_memclr                 
+00002ce7  __aeabi_memclr4                
+00002ce7  __aeabi_memclr8                
+00002701  __aeabi_memcpy                 
+00002701  __aeabi_memcpy4                
+00002701  __aeabi_memcpy8                
+00002ce9  __aeabi_memset                 
+00002ce9  __aeabi_memset4                
+00002ce9  __aeabi_memset8                
+00003cbd  __aeabi_uidiv                  
+00003cbd  __aeabi_uidivmod               
+000013ab  __aeabi_uldivmod               
+ffffffff  __binit__                      
+ffffffff  __c_args__                     
+0000423b  __mpu_init                     
+2000796c  __stack                        
+20007c94  _adc_ioctl                     
+000043ad  _args_main                     
+000036c9  _c_int00                       
+00004804  _ctypes_                       
+20007c64  _lock                          
+2000026c  _nokia5110_ioctl               
+00004487  _nop                           
+0000447f  _register_lock                 
+00004479  _register_unlock               
+000044ff  _system_post_cinit             
+000045e9  _system_pre_init               
+20007c6c  _timer_ioctl                   
+20007c68  _unlock                        
+00003721  abort                          
+00004259  adc_close                      
+000040fd  adc_ioctl                      
+0000437d  adc_open                       
+000045e1  adc_read                       
+00003efd  adc_read_value                 
+000045e5  adc_write                      
+000039e9  atoi                           
+20007958  binary_sem_lcd                 
+2000795c  binary_semafore                
+ffffffff  binit                          
+00003a35  copy_in                        
+0000448d  copysign                       
+0000448d  copysignl                      
+00003f31  dev_ioctl                      
+00003395  dev_open                       
+00003f65  dev_write                      
+20007ca4  errno                          
+00003729  exit                           
+000031a9  frexp                          
+000031a9  frexpl                         
+20007960  g_pQueue                       
+20007964  g_pQueueDisplay                
+20007968  g_pUARTSemaphore               
+20000000  g_pfnRAMVectors                
+00000000  g_pfnVectors                   
+000021ed  ldexp                          
+000021ed  ldexpl                         
+20007c84  list_count                     
+00003771  ltoa                           
+00002b71  main                           
+20007ca8  main_func_sp                   
+000042c9  memccpy                        
+00002701  memcpy                         
+00002cef  memset                         
+20007b6c  mydev                          
+000032d3  nokia5110_close                
+000041bd  nokia5110_ioctl                
+20007c9c  nokia5110_list_count           
+000036c7  nokia5110_open                 
+00003c77  nokia5110_read                 
+00003db3  nokia5110_write                
+00004291  print                          
+00002655  pvPortMalloc                   
+00004395  pvTaskIncrementMutexHeldCount  
+20007bf8  pxCurrentTCB                   
+0000414d  pxPortInitialiseStack          
+000021ed  scalbn                         
+000021ed  scalbnl                        
+00003455  sprintf                        
+00004425  strchr                         
+000043c5  strcmp                         
+000044a1  strlen                         
+000045ed  timer0_close                   
+000041dd  timer0_ioctl                   
+000045f1  timer0_open                    
+000045f5  timer0_read                    
+000045f9  timer0_write                   
+000035c5  timerA_interrupt_handler       
+20007cac  timer_list_count               
+00004605  uart0_close                    
+00004609  uart0_ioctl                    
+0000460d  uart0_open                     
+00004611  uart0_read                     
+000045a1  uart0_write                    
+00004615  uart2_close                    
+00004619  uart2_ioctl                    
+0000461d  uart2_open                     
+00004621  uart2_read                     
+000045ab  uart2_write                    
+00004b4c  ulMaxSyscallInterruptPriority  
+000024c5  ulPortGetIPSR                  
+000041fd  uxListRemove                   
+00004567  vApplicationStackOverflowHook  
+0000443b  vListInitialise                
+000045cf  vListInitialiseItem            
+00003e5d  vListInsert                    
+000043dd  vListInsertEnd                 
+00002579  vPortEnableVFP                 
+000042e5  vPortEnterCritical             
+000043f5  vPortExitCritical              
+00003c79  vPortFree                      
+0000253d  vPortSVCHandler                
+000044b5  vPortSetupTimerInterrupt       
+0000255d  vPortStartFirstTask            
+00004581  vTaskMissedYield               
+0000320d  vTaskPlaceOnEventList          
+00002839  vTaskPriorityInherit           
+0000440d  vTaskSetTimeOutState           
+000034b5  vTaskStartScheduler            
+00004521  vTaskSuspendAll                
+000028cd  vTaskSwitchContext             
+000024dd  xPortPendSVHandler             
+00003cfd  xPortStartScheduler            
+0000407d  xPortSysTickHandler            
+00003a81  xQueueCreateMutex              
+00003d3d  xQueueGenericCreate            
+00001cc1  xQueueGenericReceive           
+00002aed  xQueueGenericReset             
+000022e9  xQueueGenericSend              
+0000361d  xQueueGiveFromISR              
+000037c5  xTaskCheckForTimeOut           
+00001ee9  xTaskGenericCreate             
+00001fed  xTaskIncrementTick             
+00002bf1  xTaskPriorityDisinherit        
+00002dd9  xTaskRemoveFromEventList       
+000023d1  xTaskResumeAll                 
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                           
+-------   ----                           
+00000000  __TI_static_base__             
+00000000  g_pfnVectors                   
+00000200  __STACK_SIZE                   
+00000ab1  __TI_printfi                   
+000013ab  __aeabi_uldivmod               
+000015a1  UARTvprintf                    
+0000178b  __aeabi_dsub                   
+00001795  __aeabi_dadd                   
+00001941  __aeabi_ddiv                   
+00001a77  GPIOPadConfigSet               
+00001ba9  Nokia5110_Init                 
+00001cc1  xQueueGenericReceive           
+00001dd9  SysCtlClockGet                 
+00001ee9  xTaskGenericCreate             
+00001fed  xTaskIncrementTick             
+000020f1  __aeabi_dmul                   
+000021ed  ldexp                          
+000021ed  ldexpl                         
+000021ed  scalbn                         
+000021ed  scalbnl                        
+000022e9  xQueueGenericSend              
+000023d1  xTaskResumeAll                 
+000024c5  ulPortGetIPSR                  
+000024dd  xPortPendSVHandler             
+0000253d  vPortSVCHandler                
+0000255d  vPortStartFirstTask            
+00002579  vPortEnableVFP                 
+00002589  CreateTasks                    
+00002655  pvPortMalloc                   
+00002701  __aeabi_memcpy                 
+00002701  __aeabi_memcpy4                
+00002701  __aeabi_memcpy8                
+00002701  memcpy                         
+00002839  vTaskPriorityInherit           
+000028cd  vTaskSwitchContext             
+000029e1  __aeabi_cdcmpeq                
+000029e1  __aeabi_cdcmple                
+00002a67  __aeabi_cdrcmple               
+00002aed  xQueueGenericReset             
+00002b71  main                           
+00002bf1  xTaskPriorityDisinherit        
+00002c6d  ADCSequenceStepConfigure       
+00002ce7  __aeabi_memclr                 
+00002ce7  __aeabi_memclr4                
+00002ce7  __aeabi_memclr8                
+00002ce9  __aeabi_memset                 
+00002ce9  __aeabi_memset4                
+00002ce9  __aeabi_memset8                
+00002cef  memset                         
+00002d61  UART2_init                     
+00002d61  UART2_init_low_level           
+00002dd9  xTaskRemoveFromEventList       
+00002ec1  __TI_auto_init                 
+00002fa1  IntEnable                      
+00003009  PID_filter                     
+00003071  PLL_Init                       
+000030d9  UART0_init                     
+000030d9  UART0_init_low_level           
+00003141  __TI_decompress_lzss           
+000031a9  frexp                          
+000031a9  frexpl                         
+0000320d  vTaskPlaceOnEventList          
+000032d3  nokia5110_close                
+000032d5  TimerConfigure                 
+00003335  UARTStdioConfig                
+00003395  dev_open                       
+00003455  sprintf                        
+000034b5  vTaskStartScheduler            
+00003515  ADCSequenceConfigure           
+000035c5  timerA_interrupt_handler       
+0000361d  xQueueGiveFromISR              
+000036c7  nokia5110_open                 
+000036c9  _c_int00                       
+0000371d  C$$EXIT                        
+00003721  abort                          
+00003729  exit                           
+00003771  ltoa                           
+000037c5  xTaskCheckForTimeOut           
+00003819  ADC_init                       
+00003819  ADC_init_low_level             
+000038b9  TempCelsiusGrad                
+00003905  TIMER0_init                    
+00003905  Timer0_init_low_level          
+000039e9  atoi                           
+00003a35  copy_in                        
+00003a81  xQueueCreateMutex              
+00003acd  GPIOPinConfigure               
+00003b15  UARTwrite                      
+00003b5d  __aeabi_d2iz                   
+00003bed  UARTConfigSetExpClk            
+00003c33  __aeabi_d2uiz                  
+00003c77  nokia5110_read                 
+00003c79  vPortFree                      
+00003cbd  __aeabi_uidiv                  
+00003cbd  __aeabi_uidivmod               
+00003cfd  xPortStartScheduler            
+00003d3d  xQueueGenericCreate            
+00003db3  nokia5110_write                
+00003db5  SysCtlPeripheralReady          
+00003e25  __aeabi_f2d                    
+00003e5d  vListInsert                    
+00003e95  IntRegister                    
+00003ec9  SysCtlPeripheralEnable         
+00003efd  adc_read_value                 
+00003f31  dev_ioctl                      
+00003f65  dev_write                      
+00003fc9  ADCIntStatus                   
+00003ff7  __aeabi_i2d                    
+00004025  Nokia5110_OutChar              
+00004051  SystemInit                     
+0000407d  xPortSysTickHandler            
+000040a9  GPIODirModeSet                 
+000040d3  Nokia5110_SetCursor            
+000040fd  adc_ioctl                      
+0000414d  pxPortInitialiseStack          
+0000419b  __aeabi_idiv0                  
+0000419d  UARTDisable                    
+000041bd  nokia5110_ioctl                
+000041dd  timer0_ioctl                   
+000041fd  uxListRemove                   
+0000421d  ADCSequenceDataGet             
+0000423b  __mpu_init                     
+0000423d  UART2_print                    
+00004259  adc_close                      
+00004291  print                          
+000042c9  memccpy                        
+000042e5  vPortEnterCritical             
+00004301  UARTprintf                     
+00004335  ADCProcessorTrigger            
+0000434d  Nokia5110_Clear                
+00004365  TimerIntRegister               
+0000437d  adc_open                       
+00004395  pvTaskIncrementMutexHeldCount  
+000043ad  _args_main                     
+000043c5  strcmp                         
+000043dd  vListInsertEnd                 
+000043f5  vPortExitCritical              
+0000440d  vTaskSetTimeOutState           
+00004425  strchr                         
+0000443b  vListInitialise                
+00004451  Nokia5110_OutString            
+00004465  UARTEnable                     
+00004479  _register_unlock               
+0000447f  _register_lock                 
+00004487  _nop                           
+0000448d  copysign                       
+0000448d  copysignl                      
+000044a1  strlen                         
+000044b5  vPortSetupTimerInterrupt       
+000044c9  GPIOPinTypeUART                
+000044db  TimerLoadSet                   
+000044ff  _system_post_cinit             
+00004501  Timer0_set_value               
+00004521  vTaskSuspendAll                
+00004531  ADCSequenceEnable              
+0000453f  TimerEnable                    
+0000454d  __TI_decompress_none           
+0000455b  LCD_init                       
+00004567  vApplicationStackOverflowHook  
+00004569  Timer0_ClearInterrupt          
+00004575  __TI_zero_init                 
+00004581  vTaskMissedYield               
+0000458d  ADCIntClear                    
+00004597  UARTCharPut                    
+000045a1  uart0_write                    
+000045ab  uart2_write                    
+000045bd  ResetISR                       
+000045c3  SysCtlDelay                    
+000045c9  UARTClockSourceSet             
+000045cf  vListInitialiseItem            
+000045d5  TimerIntClear                  
+000045d9  UART0_print                    
+000045e1  adc_read                       
+000045e5  adc_write                      
+000045e9  _system_pre_init               
+000045ed  timer0_close                   
+000045f1  timer0_open                    
+000045f5  timer0_read                    
+000045f9  timer0_write                   
+00004605  uart0_close                    
+00004609  uart0_ioctl                    
+0000460d  uart0_open                     
+00004611  uart0_read                     
+00004615  uart2_close                    
+00004619  uart2_ioctl                    
+0000461d  uart2_open                     
+00004621  uart2_read                     
+00004804  _ctypes_                       
+00004b4c  ulMaxSyscallInterruptPriority  
+00004bf8  __TI_Handler_Table_Base        
+00004c04  __TI_Handler_Table_Limit       
+00004c18  __TI_CINIT_Base                
+00004c30  __TI_CINIT_Limit               
+20000000  g_pfnRAMVectors                
+2000026c  _nokia5110_ioctl               
+20007958  binary_sem_lcd                 
+2000795c  binary_semafore                
+20007960  g_pQueue                       
+20007964  g_pQueueDisplay                
+20007968  g_pUARTSemaphore               
+2000796c  __stack                        
+20007b6c  __STACK_END                    
+20007b6c  __STACK_TOP                    
+20007b6c  mydev                          
+20007bf8  pxCurrentTCB                   
+20007c4c  __TI_cleanup_ptr               
+20007c50  __TI_dtors_ptr                 
+20007c54  __TI_enable_exit_profile_output
+20007c64  _lock                          
+20007c68  _unlock                        
+20007c6c  _timer_ioctl                   
+20007c74  OS_lenght                      
+20007c78  __OSOperation                  
+20007c84  list_count                     
+20007c94  _adc_ioctl                     
+20007c9c  nokia5110_list_count           
+20007ca4  errno                          
+20007ca8  main_func_sp                   
+20007cac  timer_list_count               
+ffffffff  __TI_pprof_out_hndl            
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+ffffffff  __binit__                      
+ffffffff  __c_args__                     
+ffffffff  binit                          
+UNDEFED   SHT$$INIT_ARRAY$$Base          
+UNDEFED   SHT$$INIT_ARRAY$$Limit         
+
+[227 symbols]
