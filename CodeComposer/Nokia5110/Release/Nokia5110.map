@@ -1,0 +1,293 @@
+******************************************************************************
+                  TI ARM Linker Unix v16.9.4                   
+******************************************************************************
+>> Linked Sun Nov 19 06:45:44 2017
+
+OUTPUT FILE NAME:   <Nokia5110.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00000979
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  000010d4  0003ef2c  R  X
+  SRAM                  20000000   00008000  00000410  00007bf0  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000010d8   000010d8    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00000858   00000858    r-x .text
+  00000ac4    00000ac4    000005d8   000005d8    r-- .const
+  000010a0    000010a0    00000038   00000038    r-- .cinit
+20000000    20000000    00000410   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    000001f8   00000000    rw- .bss
+  200003f8    200003f8    00000018   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00000858     
+                  0000026c    00000400     Nokia5110.obj (.text)
+                  0000066c    000000b4     Nokia5110TestMain.obj (.text)
+                  00000720    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  000007bc    0000007a                                   : memset_t2.obj (.text)
+                  00000836    00000002                                   : mpu_init.obj (.text)
+                  00000838    00000070                                   : autoinit.obj (.text)
+                  000008a8    00000068     PLL.obj (.text)
+                  00000910    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.obj (.text:decompress:lzss)
+                  00000978    00000054                                   : boot.obj (.text)
+                  000009cc    00000054                                   : exit.obj (.text)
+                  00000a20    0000004c                                   : cpy_tbl.obj (.text)
+                  00000a6c    00000018                                   : args_main.obj (.text)
+                  00000a84    00000014                                   : _lock.obj (.text)
+                  00000a98    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  00000aa6    0000000c                                   : copy_zero_init.obj (.text:decompress:ZI)
+                  00000ab2    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00000abe    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.obj (.text)
+                  00000ac2    00000002                                   : startup.obj (.text)
+
+.const     0    00000ac4    000005d8     
+                  00000ac4    000001f8     Nokia5110TestMain.obj (.const:.string:Longhorn2)
+                  00000cbc    000001f8     Nokia5110TestMain.obj (.const:.string:Longhorn)
+                  00000eb4    000001e0     Nokia5110.obj (.const:ASCII)
+                  00001094    00000008     Nokia5110.obj (.const:.string:Masks)
+
+.cinit     0    000010a0    00000038     
+                  000010a0    00000011     (.cinit..data.load) [load image, compression = lzss]
+                  000010b1    00000003     --HOLE-- [fill = 0]
+                  000010b4    0000000c     (__TI_handler_table)
+                  000010c0    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  000010c8    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000200    000001f8     UNINITIALIZED
+                  20000200    000001f8     (.common:Screen)
+
+.data      0    200003f8    00000018     UNINITIALIZED
+                  200003f8    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : exit.obj (.data:$O1$$)
+                  20000404    00000008                                   : _lock.obj (.data:$O1$$)
+                  2000040c    00000004                                   : stkdepth_vars.obj (.data)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000200     --HOLE--
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    ./
+       Nokia5110.obj                  1024   488       504    
+       Nokia5110TestMain.obj          180    1008      0      
+       tm4c123gh6pm_startup_ccs.obj   12     620       0      
+       PLL.obj                        104    0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         1320   2116      504    
+                                                              
+    /home/solid/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/lib/rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.obj                  156    0         0      
+       memset_t2.obj                  122    0         0      
+       autoinit.obj                   112    0         0      
+       copy_decompress_lzss.obj       104    0         0      
+       exit.obj                       84     0         12     
+       boot.obj                       84     0         0      
+       cpy_tbl.obj                    76     0         0      
+       _lock.obj                      20     0         8      
+       args_main.obj                  24     0         0      
+       copy_decompress_none.obj       14     0         0      
+       copy_zero_init.obj             12     0         0      
+       pre_init.obj                   4      0         0      
+       stkdepth_vars.obj              0      0         4      
+       mpu_init.obj                   2      0         0      
+       startup.obj                    2      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         816    0         24     
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      53        0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   2136   2169      1040   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000010c8 records: 2, size/record: 8, table size: 16
+	.data: load addr=000010a0, load size=00000011 bytes, run addr=200003f8, run size=00000018 bytes, compression=lzss
+	.bss: load addr=000010c0, load size=00000008 bytes, run addr=20000200, run size=000001f8 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 000010b4 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                           
+-------   ----                           
+000009cd  C$$EXIT                        
+0000066d  Delay                          
+00000cbc  Longhorn                       
+00000ac4  Longhorn2                      
+00001094  Masks                          
+0000061b  Nokia5110_Clear                
+00000609  Nokia5110_ClearBuffer          
+000005ed  Nokia5110_ClrPxl               
+000005e7  Nokia5110_DisplayBuffer        
+000005c9  Nokia5110_DrawFullImage        
+000004c5  Nokia5110_Init                 
+000003df  Nokia5110_OutChar              
+00000407  Nokia5110_OutString            
+0000041b  Nokia5110_OutUDec              
+000002e3  Nokia5110_PrintBMP             
+000002b9  Nokia5110_SetCursor            
+0000026d  Nokia5110_SetPxl               
+000008a9  PLL_Init                       
+00000ab3  ResetISR                       
+UNDEFED   SHT$$INIT_ARRAY$$Base          
+UNDEFED   SHT$$INIT_ARRAY$$Limit         
+20000200  Screen                         
+20000200  __STACK_END                    
+00000200  __STACK_SIZE                   
+20000200  __STACK_TOP                    
+000010c8  __TI_CINIT_Base                
+000010d8  __TI_CINIT_Limit               
+000010b4  __TI_Handler_Table_Base        
+000010c0  __TI_Handler_Table_Limit       
+00000839  __TI_auto_init                 
+200003f8  __TI_cleanup_ptr               
+00000911  __TI_decompress_lzss           
+00000a99  __TI_decompress_none           
+200003fc  __TI_dtors_ptr                 
+20000400  __TI_enable_exit_profile_output
+ffffffff  __TI_pprof_out_hndl            
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+00000000  __TI_static_base__             
+00000aa7  __TI_zero_init                 
+000007bd  __aeabi_memclr                 
+000007bd  __aeabi_memclr4                
+000007bd  __aeabi_memclr8                
+00000721  __aeabi_memcpy                 
+00000721  __aeabi_memcpy4                
+00000721  __aeabi_memcpy8                
+000007bf  __aeabi_memset                 
+000007bf  __aeabi_memset4                
+000007bf  __aeabi_memset8                
+ffffffff  __binit__                      
+ffffffff  __c_args__                     
+00000837  __mpu_init                     
+20000000  __stack                        
+00000a6d  _args_main                     
+00000979  _c_int00                       
+20000404  _lock                          
+00000a93  _nop                           
+00000a8b  _register_lock                 
+00000a85  _register_unlock               
+00000ac3  _system_post_cinit             
+00000abf  _system_pre_init               
+20000408  _unlock                        
+000009d1  abort                          
+ffffffff  binit                          
+00000a21  copy_in                        
+000009d9  exit                           
+00000000  g_pfnVectors                   
+00000675  main                           
+2000040c  main_func_sp                   
+00000721  memcpy                         
+000007c5  memset                         
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                           
+-------   ----                           
+00000000  __TI_static_base__             
+00000000  g_pfnVectors                   
+00000200  __STACK_SIZE                   
+0000026d  Nokia5110_SetPxl               
+000002b9  Nokia5110_SetCursor            
+000002e3  Nokia5110_PrintBMP             
+000003df  Nokia5110_OutChar              
+00000407  Nokia5110_OutString            
+0000041b  Nokia5110_OutUDec              
+000004c5  Nokia5110_Init                 
+000005c9  Nokia5110_DrawFullImage        
+000005e7  Nokia5110_DisplayBuffer        
+000005ed  Nokia5110_ClrPxl               
+00000609  Nokia5110_ClearBuffer          
+0000061b  Nokia5110_Clear                
+0000066d  Delay                          
+00000675  main                           
+00000721  __aeabi_memcpy                 
+00000721  __aeabi_memcpy4                
+00000721  __aeabi_memcpy8                
+00000721  memcpy                         
+000007bd  __aeabi_memclr                 
+000007bd  __aeabi_memclr4                
+000007bd  __aeabi_memclr8                
+000007bf  __aeabi_memset                 
+000007bf  __aeabi_memset4                
+000007bf  __aeabi_memset8                
+000007c5  memset                         
+00000837  __mpu_init                     
+00000839  __TI_auto_init                 
+000008a9  PLL_Init                       
+00000911  __TI_decompress_lzss           
+00000979  _c_int00                       
+000009cd  C$$EXIT                        
+000009d1  abort                          
+000009d9  exit                           
+00000a21  copy_in                        
+00000a6d  _args_main                     
+00000a85  _register_unlock               
+00000a8b  _register_lock                 
+00000a93  _nop                           
+00000a99  __TI_decompress_none           
+00000aa7  __TI_zero_init                 
+00000ab3  ResetISR                       
+00000abf  _system_pre_init               
+00000ac3  _system_post_cinit             
+00000ac4  Longhorn2                      
+00000cbc  Longhorn                       
+00001094  Masks                          
+000010b4  __TI_Handler_Table_Base        
+000010c0  __TI_Handler_Table_Limit       
+000010c8  __TI_CINIT_Base                
+000010d8  __TI_CINIT_Limit               
+20000000  __stack                        
+20000200  Screen                         
+20000200  __STACK_END                    
+20000200  __STACK_TOP                    
+200003f8  __TI_cleanup_ptr               
+200003fc  __TI_dtors_ptr                 
+20000400  __TI_enable_exit_profile_output
+20000404  _lock                          
+20000408  _unlock                        
+2000040c  main_func_sp                   
+ffffffff  __TI_pprof_out_hndl            
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+ffffffff  __binit__                      
+ffffffff  __c_args__                     
+ffffffff  binit                          
+UNDEFED   SHT$$INIT_ARRAY$$Base          
+UNDEFED   SHT$$INIT_ARRAY$$Limit         
+
+[71 symbols]
