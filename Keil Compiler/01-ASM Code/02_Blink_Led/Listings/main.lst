@@ -1,0 +1,183 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000 400FE608 
+                       SYSCTL_RCGCGPIO_R
+                               equ              0x400FE608
+    2 00000000 40025520 
+                       GPIO_PORTF_LOCK_R
+                               equ              0x40025520
+    3 00000000 4C4F434B 
+                       GPIO_LOCK_KEY
+                               equ              0x4C4F434B
+    4 00000000 40025400 
+                       GPIO_PORTF_DIR_R
+                               equ              0x40025400
+    5 00000000 4002551C 
+                       GPIO_PORTF_DEN_R
+                               equ              0x4002551C
+    6 00000000 400253FC 
+                       GPIO_PORTF_DATA_R
+                               equ              0x400253FC
+    7 00000000         
+    8 00000000                 AREA             |.text|, CODE, READONLY, ALIGN=
+2
+    9 00000000                 THUMB
+   10 00000000                 EXPORT           Main
+   11 00000000         
+   12 00000000         Main
+   13 00000000 F000 F803       BL               GPIOF_Init
+   14 00000004         loop
+   15 00000004 F000 F813       BL               LIGHT_ON
+   16 00000008 E7FC            B                loop
+   17 0000000A         
+   18 0000000A         GPIOF_Init
+   19 0000000A 490B            LDR              R1, =SYSCTL_RCGCGPIO_R
+   20 0000000C 6808            LDR              R0, [R1]
+   21 0000000E F040 0020       ORR              R0, R0, #0x20
+   22 00000012 6008            STR              R0, [R1]
+   23 00000014 BF00            NOP
+   24 00000016 BF00            NOP
+   25 00000018 4908            LDR              R1, =GPIO_PORTF_LOCK_R
+   26 0000001A 4809            LDR              R0, =GPIO_LOCK_KEY
+   27 0000001C 4909            LDR              R1, =GPIO_PORTF_DIR_R
+   28 0000001E F04F 0002       MOV              R0, #0x02
+   29 00000022 6008            STR              R0, [R1]
+   30 00000024 4908            LDR              R1, =GPIO_PORTF_DEN_R
+   31 00000026 F04F 0002       MOV              R0, #0x02
+   32 0000002A 6008            STR              R0, [R1]
+   33 0000002C         
+   34 0000002C 4770            BX               LR
+   35 0000002E         
+   36 0000002E         LIGHT_ON
+   37 0000002E 4907            LDR              R1, =GPIO_PORTF_DATA_R
+   38 00000030 F04F 0002       MOV              R0, #0x02
+   39 00000034 6008            STR              R0, [R1]
+   40 00000036 4770            BX               LR
+   41 00000038         
+   42 00000038                 ALIGN
+   43 00000038                 END
+              400FE608 
+              40025520 
+              4C4F434B 
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+              40025400 
+              4002551C 
+              400253FC 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\objects\main.d -o.\objects\main.o -I.\RTE\_Target_1 -IC:\Keil
+_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\
+1.1.0\Device\Include\TM4C123 --predefine="__EVAL SETA 1" --predefine="__UVISION
+_VERSION SETA 523" --predefine="_RTE_ SETA 1" --predefine="TM4C123GH6PM SETA 1"
+ --list=.\listings\main.lst main.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 8 in file main.s
+   Uses
+      None
+Comment: .text unused
+GPIOF_Init 0000000A
+
+Symbol: GPIOF_Init
+   Definitions
+      At line 18 in file main.s
+   Uses
+      At line 13 in file main.s
+Comment: GPIOF_Init used once
+LIGHT_ON 0000002E
+
+Symbol: LIGHT_ON
+   Definitions
+      At line 36 in file main.s
+   Uses
+      At line 15 in file main.s
+Comment: LIGHT_ON used once
+Main 00000000
+
+Symbol: Main
+   Definitions
+      At line 12 in file main.s
+   Uses
+      At line 10 in file main.s
+Comment: Main used once
+loop 00000004
+
+Symbol: loop
+   Definitions
+      At line 14 in file main.s
+   Uses
+      At line 16 in file main.s
+Comment: loop used once
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+GPIO_LOCK_KEY 4C4F434B
+
+Symbol: GPIO_LOCK_KEY
+   Definitions
+      At line 3 in file main.s
+   Uses
+      At line 26 in file main.s
+Comment: GPIO_LOCK_KEY used once
+GPIO_PORTF_DATA_R 400253FC
+
+Symbol: GPIO_PORTF_DATA_R
+   Definitions
+      At line 6 in file main.s
+   Uses
+      At line 37 in file main.s
+Comment: GPIO_PORTF_DATA_R used once
+GPIO_PORTF_DEN_R 4002551C
+
+Symbol: GPIO_PORTF_DEN_R
+   Definitions
+      At line 5 in file main.s
+   Uses
+      At line 30 in file main.s
+Comment: GPIO_PORTF_DEN_R used once
+GPIO_PORTF_DIR_R 40025400
+
+Symbol: GPIO_PORTF_DIR_R
+   Definitions
+      At line 4 in file main.s
+   Uses
+      At line 27 in file main.s
+Comment: GPIO_PORTF_DIR_R used once
+GPIO_PORTF_LOCK_R 40025520
+
+Symbol: GPIO_PORTF_LOCK_R
+   Definitions
+      At line 2 in file main.s
+   Uses
+      At line 25 in file main.s
+Comment: GPIO_PORTF_LOCK_R used once
+SYSCTL_RCGCGPIO_R 400FE608
+
+Symbol: SYSCTL_RCGCGPIO_R
+   Definitions
+      At line 1 in file main.s
+   Uses
+      At line 19 in file main.s
+Comment: SYSCTL_RCGCGPIO_R used once
+6 symbols
+348 symbols in table
