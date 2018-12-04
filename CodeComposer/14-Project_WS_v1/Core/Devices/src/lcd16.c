@@ -1,4 +1,5 @@
 /* include *******************************************************************************************/
+#include <lcd16_driver.h>
 #include <lcd16.h>
 #include <stdio.h>
 
@@ -44,7 +45,7 @@ static void lcd16_init(const void *context)
 	Lcd16_Descriptor *lcd16_descriptor = context;
 	if(!lcd_ctx.init)
 	{
-		printf("LCD16 initialized\n");
+	    Lcd_Init();
 		lcd_ctx.init = 1;
 	}
 }
@@ -54,7 +55,7 @@ int8_t  lcd16_open (const void *context)
 {
 	Lcd16_Descriptor *lcd16_descriptor = context;
 	lcd16_init(context);
-	printf("LCD16 openned\n");
+//	printf("LCD16 openned\n");
 	/* Implement your code here */
 	return RET_OK;
 }
@@ -62,8 +63,10 @@ int8_t  lcd16_open (const void *context)
 int32_t lcd16_write(const void *context, const void *buffer_write, uint32_t size)
 {
 	Lcd16_Descriptor *lcd16_descriptor = context;
-	printf("LCD16 write\n");
+	const char *p = buffer_write;
+//	printf("LCD16 write\n");
 	/* Implement your code here */
+	Lcd_Print(p);
 	return RET_OK;
 }
 
