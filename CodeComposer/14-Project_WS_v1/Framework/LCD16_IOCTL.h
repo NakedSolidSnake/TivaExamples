@@ -10,7 +10,10 @@
 
 
 typedef enum _LCD16_IOCTL{
-
+    LCD_STATUS,
+    LCD_CLEAR,
+    LCD_LINE_SET_1,
+    LCD_LINE_SET_2,
 }LCD16_Ioctl;
 
 

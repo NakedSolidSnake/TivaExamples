@@ -18,6 +18,10 @@ typedef void (*Lcd16Ioctl)(void *parameter);
 
 /* private functions *********************************************************************************/
 static void lcd16_status(void *args);
+static void lcd16_clear(void *args);
+static void lcd16_line_set_1(void *args);
+static void lcd16_line_set_2(void *args);
+
 /* If you remove this comment remove init function from open and comment the follow function*/
 /* with this, the compiler will resolve the call of all init functions */
 //static void lcd16_init(const void *context) __attribute__((constructor));
@@ -25,7 +29,10 @@ static void lcd16_init(const void *context);
 
 /* ioctl functions entry *****************************************************************************/
 Lcd16Ioctl lcd16_ioctl_functions[] = {
-		lcd16_status
+		lcd16_status,
+		lcd16_clear,
+		lcd16_line_set_1,
+		lcd16_line_set_2,
 };
 
 /* global variables **********************************************************************************/
@@ -40,9 +47,25 @@ static void lcd16_status(void *args)
 	printf("lcd16_status\n");
 }
 
+static void lcd16_clear(void *args)
+{
+    Lcd_Send(LCD_COMMAND_CLEAR, COMMAND);
+}
+
+static void lcd16_line_set_1(void *args)
+{
+    Lcd_Send(LCD_COMMAND_LINE_1, COMMAND);
+}
+
+static void lcd16_line_set_2(void *args)
+{
+    Lcd_Send(LCD_COMMAND_LINE_2, COMMAND);
+}
+
 static void lcd16_init(const void *context)
 {
 	Lcd16_Descriptor *lcd16_descriptor = context;
+	(void)lcd16_descriptor;
 	if(!lcd_ctx.init)
 	{
 	    Lcd_Init();

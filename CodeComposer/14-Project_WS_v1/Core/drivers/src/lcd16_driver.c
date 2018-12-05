@@ -27,9 +27,7 @@
 #define DB6 GPIO_PIN_6
 #define DB7 GPIO_PIN_7
 
-#define LCD_COMMAND_LINE_1          0x80
-#define LCD_COMMAND_LINE_2          0xC0
-#define LCD_COMMAND_CLEAR           0x01
+
 
 
 #define LCD_BASE GPIO_PORTA_BASE
@@ -83,8 +81,8 @@ void Lcd_Send(unsigned char data, LCD_MODE lcd_mode) {
 void Lcd_Print(const char *string)
 {
     for (; *string != '\0'; string++) {
-        Lcd_Send(*string, MESSAGE);
-    }
+            Lcd_Send(*string, MESSAGE);
+        }
 }
 
 void Lcd_Select_Line(LCD_LINE line)

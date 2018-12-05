@@ -10,6 +10,11 @@
 
 #include <stdint.h>
 
+#define LCD_COMMAND_LINE_1          0x80
+#define LCD_COMMAND_LINE_2          0xC0
+#define LCD_COMMAND_CLEAR           0x01
+
+
 typedef enum LCD_MODE_TAG{
     COMMAND,
     MESSAGE
