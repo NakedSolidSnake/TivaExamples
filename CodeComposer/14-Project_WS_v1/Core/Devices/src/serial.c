@@ -51,8 +51,16 @@ static void serial_init(const void *context)
 	Serial_Descriptor *serial_descriptor = context;
 	if(!ser_ctx.init)
 	{
+	    switch (serial_descriptor->id) {
+            case 2:
+                Uart2Configure();
+                break;
+            default:
+                break;
+        }
 		printf("Serial initialized\n");
 		ser_ctx.init = 1;
+
 	}
 }
 
@@ -69,8 +77,9 @@ int8_t  serial_open (const void *context)
 int32_t serial_write(const void *context, const void *buffer_write, uint32_t size)
 {
 	Serial_Descriptor *serial_descriptor = context;
-	printf("Serial write\n");
+//	printf("Serial write\n");
 	/* Implement your code here */
+	Uart2_Print(buffer_write, size);
 	return RET_OK;
 }
 
