@@ -1,4 +1,5 @@
 /* include *******************************************************************************************/
+#include <adc.h>
 #include <fileoperation.h>
 #include <stdlib.h>
 
@@ -8,17 +9,16 @@
 #include <lcd_graphics.h>
 #include <serial.h>
 #include <zigbee.h>
-#include <adc.h>
 #include <timers.h>
 
 /* defines *******************************************************************************************/
 
 /* global variables **********************************************************************************/
 
-//static const ADC_Descriptor ad_descriptor = {
-//	.id = 1,
-//	.ad_name = (const uint8_t *)"AD Config"
-//};
+static const ADC_Descriptor ad_descriptor = {
+	.id = 1,
+	.ad_name = (const uint8_t *)"AD Config"
+};
 //
 //static const Bluetooth_Descriptor bluetooth_descriptor = {
 //	.id = 1,
@@ -64,7 +64,7 @@ fileoperation devices[] =
 //	{"LCD_Graphics", 0, .context = &lcd_graphics_descriptor, .open = lcd_graphics_open, .write = lcd_graphics_write, .read = lcd_graphics_read, .ioctl = lcd_graphics_ioctl, .close = lcd_graphics_close},
 	{"SERIAL"      , 0, .context = &serial_descriptor      , .open = serial_open      , .write = serial_write      , .read = serial_read      , .ioctl = serial_ioctl      , .close = serial_close},
 //	{"Zigbee"      , 0, .context = &zigbee_descriptor      , .open = zigbee_open      , .write = zigbee_write      , .read = zigbee_read      , .ioctl = zigbee_ioctl      , .close = zigbee_close},
-//	{"ADC"         , 0, .context = &ad_descriptor          , .open = adc_open         , .write = adc_write         , .read = adc_read         , .ioctl = adc_ioctl         , .close = adc_close},
+	{"ADC"         , 0, .context = &ad_descriptor          , .open = adc_open         , .write = adc_write         , .read = adc_read         , .ioctl = adc_ioctl         , .close = adc_close},
 };
 
 
