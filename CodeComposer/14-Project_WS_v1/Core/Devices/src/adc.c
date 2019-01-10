@@ -1,5 +1,6 @@
 /* include *******************************************************************************************/
 #include <adc.h>
+#include <ADC_driver.h>
 #include <stdio.h>
 
 /* defines *******************************************************************************************/
@@ -44,6 +45,7 @@ static void adc_init(const void *context)
 	ADC_Descriptor  *adc_descriptor = context;
 	if(!ad_ctx.init)
 	{
+	    ADC_Init();
 		printf("ADC initialized\n");
 		ad_ctx.init = 1;
 	}	
@@ -68,7 +70,11 @@ int32_t adc_write(const void *context, const void *buffer_write, uint32_t size)
 int32_t adc_read (const void *context, void *buffer_read, uint32_t *size)
 {
 	ADC_Descriptor  *adc_descriptor = context;
-	printf("ADC read\n");
+//	printf("ADC read\n");
+	char *p = buffer_read;
+	uint32_t read = ADC_Read();
+	memcpy(p, read, sizeof(p));
+
 	return RET_OK;
 }
 
