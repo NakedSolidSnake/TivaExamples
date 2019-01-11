@@ -9,6 +9,7 @@
 int main(void)
 {
 
+    Test_LCD16();
     while(1);
 	return 0;
 }

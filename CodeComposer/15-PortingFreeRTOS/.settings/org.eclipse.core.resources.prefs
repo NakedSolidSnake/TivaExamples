@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//Debug/HAL/source/subdir_rules.mk=UTF-8
+encoding//Debug/HAL/source/subdir_vars.mk=UTF-8
 encoding//Debug/Test/src/subdir_rules.mk=UTF-8
 encoding//Debug/Test/src/subdir_vars.mk=UTF-8
 encoding//Debug/ThirdParty/FreeRTOS/Source/portable/CCS/ARM_CM4F/subdir_rules.mk=UTF-8

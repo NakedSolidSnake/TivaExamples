@@ -11,5 +11,6 @@
 #include <stdint.h>
 
 int Test_FreeRTOS(void);
+int Test_LCD16(void);
 
 #endif /* TEST_TEST_H_ */
