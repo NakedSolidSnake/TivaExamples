@@ -5,6 +5,7 @@
  *      Author: solid
  */
 
+#if 0
 
 #include "test.h"
 #include "lcd16.h"
@@ -19,3 +20,5 @@ int Test_LCD16(void)
 
     return 0;
 }
+
+#endif

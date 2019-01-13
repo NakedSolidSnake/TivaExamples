@@ -9,7 +9,7 @@
 int main(void)
 {
 
-    Test_LCD16();
+    Test_SFA_LCD16();
     while(1);
 	return 0;
 }
