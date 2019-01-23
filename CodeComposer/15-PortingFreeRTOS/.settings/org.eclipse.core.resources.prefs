@@ -1,4 +1,14 @@
 eclipse.preferences.version=1
+encoding//Debug/BSP/subdir_rules.mk=UTF-8
+encoding//Debug/BSP/subdir_vars.mk=UTF-8
+encoding//Debug/Core/FileOperation/subdir_rules.mk=UTF-8
+encoding//Debug/Core/FileOperation/subdir_vars.mk=UTF-8
+encoding//Debug/Core/HAL/source/subdir_rules.mk=UTF-8
+encoding//Debug/Core/HAL/source/subdir_vars.mk=UTF-8
+encoding//Debug/Core/Hardware/DeviceDriver/source/subdir_rules.mk=UTF-8
+encoding//Debug/Core/Hardware/DeviceDriver/source/subdir_vars.mk=UTF-8
+encoding//Debug/Core/Hardware/HAL/source/subdir_rules.mk=UTF-8
+encoding//Debug/Core/Hardware/HAL/source/subdir_vars.mk=UTF-8
 encoding//Debug/HAL/source/subdir_rules.mk=UTF-8
 encoding//Debug/HAL/source/subdir_vars.mk=UTF-8
 encoding//Debug/Test/src/subdir_rules.mk=UTF-8
