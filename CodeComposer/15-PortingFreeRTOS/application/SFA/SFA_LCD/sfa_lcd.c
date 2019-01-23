@@ -6,10 +6,10 @@
  */
 
 
+#include <hal_lcd16.h>
 #include "sfa_lcd.h"
 #include "FreeRTOS.h"
 #include "semphr.h"
-#include "lcd16.h"
 
 static SemaphoreHandle_t xLCDSemaphore;
 

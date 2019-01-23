@@ -13,5 +13,6 @@
 int Test_FreeRTOS(void);
 int Test_LCD16(void);
 int Test_SFA_LCD16(void);
+int Test_LCD16_Abstraction(void);
 
 #endif /* TEST_TEST_H_ */
