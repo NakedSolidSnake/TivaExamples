@@ -5,8 +5,7 @@
  *      Author: solid
  */
 
-#include <lcd16.h>
-
+#include <hal_lcd16.h>
 #include <stdint.h>
 #include <string.h>
 #include <stdbool.h>
@@ -27,11 +26,6 @@
 #define DB5 GPIO_PIN_5
 #define DB6 GPIO_PIN_6
 #define DB7 GPIO_PIN_7
-
-#define LCD_COMMAND_LINE_1          0x80
-#define LCD_COMMAND_LINE_2          0xC0
-#define LCD_COMMAND_CLEAR           0x01
-
 
 
 #define LCD_BASE GPIO_PORTA_BASE
@@ -82,11 +76,23 @@ void Lcd_Send(unsigned char data, LCD_MODE lcd_mode) {
     GPIOPinWrite(LCD_BASE, EN, LOW);
 }
 
+void LCD_Print_Char(const char letter)
+{
+    Lcd_Send(letter, MESSAGE);
+}
+
+void LCD_Print(const char *message)
+{
+    for (; *message != '\0'; message++) {
+        Lcd_Send(*message, MESSAGE);
+    }
+}
+
 void Lcd_Print_Char(const char letter, LCD_LINE line, int offset)
 {
     switch (line) {
     case LCD_LINE_1:
-        Lcd_Send(0x80 + offset, COMMAND);
+        Lcd_Send(LCD_COMMAND_LINE_1 + offset, COMMAND);
         break;
     case LCD_LINE_2:
         Lcd_Send(0xC0 + offset, COMMAND);

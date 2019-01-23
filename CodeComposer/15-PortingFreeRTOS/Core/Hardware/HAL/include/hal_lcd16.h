@@ -10,6 +10,11 @@
 
 #include <stdint.h>
 
+#define LCD_COMMAND_LINE_1          0x80
+#define LCD_COMMAND_LINE_2          0xC0
+#define LCD_COMMAND_CLEAR           0x01
+
+
 typedef enum LCD_MODE_TAG{
     COMMAND,
     MESSAGE
@@ -22,6 +27,8 @@ typedef enum LCD_LINE_TAG{
 
 
 void Lcd_Init(void);
+void LCD_Print_Char(const char letter);
+void LCD_Print(const char *message);
 void Lcd_Send(unsigned char data, LCD_MODE lcd_mode);
 void Lcd_Print_Char(const char letter, LCD_LINE line, int offset);
 void Lcd_Print(const char *message, LCD_LINE line, int offset);
