@@ -12,6 +12,7 @@
 #include "fileoperation.h"
 
 #include <driver_lcd16.h>
+#include <driver_serial.h>
 
 //#include "../Core/Devices/Bluetooth/bluetooth.h"
 //#include "../Core/Devices/Keyboard/keyboard.h"
@@ -50,10 +51,13 @@ static const Lcd16_Descriptor lcd16_descriptor = {
     .lcd16_name = (const uint8_t *)"Lcd 16 Config"
 };
 //
-//static const Serial_Descriptor serial_descriptor = {
-//    .id = 1,
-//    .serial_name = (const uint8_t *)"Serial Config"
-//};
+static const Serial_Descriptor serial_descriptor = {
+    .dev = 2,
+    .baudrate = 115200,
+    .databits = 8,
+    .parity = 0,
+    .stopbits = 1
+};
 //
 //static const ZigBee_Descriptor zigbee_descriptor = {
 //    .id = 1,
@@ -71,7 +75,7 @@ fileoperation devices[] =
 //    {"Keyboard"    , 0, .context = &keyboad_descriptor     , .open = keyboard_open    , .write = keyboard_write    , .read = keyboard_read    , .ioctl = keyboard_ioctl    , .close = keyboard_close},
     {"LCD16"       , 0, .context = &lcd16_descriptor       , .open = lcd16_open       , .write = lcd16_write       , .read = lcd16_read       , .ioctl = lcd16_ioctl       , .close = lcd16_close},
 //    {"LCD_Graphics", 0, .context = &lcd_graphics_descriptor, .open = lcd_graphics_open, .write = lcd_graphics_write, .read = lcd_graphics_read, .ioctl = lcd_graphics_ioctl, .close = lcd_graphics_close},
-//    {"Serial"      , 0, .context = &serial_descriptor      , .open = serial_open      , .write = serial_write      , .read = serial_read      , .ioctl = serial_ioctl      , .close = serial_close},
+    {"Serial2"      , 0, .context = &serial_descriptor      , .open = serial_open      , .write = serial_write      , .read = serial_read      , .ioctl = serial_ioctl      , .close = serial_close},
 //    {"Zigbee"      , 0, .context = &zigbee_descriptor      , .open = zigbee_open      , .write = zigbee_write      , .read = zigbee_read      , .ioctl = zigbee_ioctl      , .close = zigbee_close},
 //    {"ADC"         , 0, .context = &ad_descriptor          , .open = adc_open         , .write = adc_write         , .read = adc_read         , .ioctl = adc_ioctl         , .close = adc_close},
 //    {"TIMER"       , 0, .context = &timer_descriptor       , .open = timer_open       , .write = timer_write       , .read = timer_read       , .ioctl = timer_ioctl       , .close = timer_close},

@@ -42,7 +42,7 @@ int32_t device_write(uint8_t device_handle, const void *buffer_write, uint32_t s
     int32_t write_count = 0;
     if(device_handle >= 0)
     {
-        write_count = pDevices[device_handle].write(NULL, buffer_write, size);
+        write_count = pDevices[device_handle].write(pDevices[device_handle].context, buffer_write, size);
     }
     return write_count;
 }
@@ -52,7 +52,7 @@ int32_t device_read (uint8_t device_handle, void *buffer_read, uint32_t *size)
     int32_t read_count = 0;
     if(device_handle >= 0)
     {
-        read_count = pDevices[device_handle].read(NULL, buffer_read, size);
+        read_count = pDevices[device_handle].read(pDevices[device_handle].context, buffer_read, size);
     }
     return read_count;
 }
@@ -73,7 +73,7 @@ int8_t  device_close(uint8_t device_handle)
     {
         if(pDevices[device_handle].isOpen)
         {
-            pDevices[device_handle].close(NULL);
+            pDevices[device_handle].close(pDevices[device_handle].context);
             pDevices[device_handle].isOpen = CLOSED;
             return 0;
         }

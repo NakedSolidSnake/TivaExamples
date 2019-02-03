@@ -10,9 +10,11 @@
 
 #include <stdint.h>
 
+
 int Test_FreeRTOS(void);
 int Test_LCD16(void);
 int Test_SFA_LCD16(void);
 int Test_LCD16_Abstraction(void);
+int Test_RS232_Driver(void);
 
 #endif /* TEST_TEST_H_ */
