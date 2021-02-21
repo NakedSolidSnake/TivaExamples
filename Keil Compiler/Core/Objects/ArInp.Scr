@@ -1,0 +1,2 @@
+--create .\Objects\Core.lib
+.\objects\gpio.o
